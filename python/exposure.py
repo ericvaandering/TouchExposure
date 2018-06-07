@@ -32,6 +32,10 @@ class Exposure:
         self.max_f = max_f
         self.step_f = step_f
 
+        self.f = 8
+        self.t = 1 / 100
+        self.ev = 0
+
     def f_stop(self, x):
         """
         Convert 0 < x < 1 into a classic f-stop value
@@ -45,8 +49,11 @@ class Exposure:
         valid_f = [f for f in F_STOPS[self.step_f] if self.max_f >= f >= self.min_f]
         x = round(x * steps) / steps
 
-        f = math.pow(2, (fmax - fmin) * x + fmin)
-
-        display_f = min(valid_f, key=lambda t: abs(t - f))
+        self.f = math.pow(2, (fmax - fmin) * x + fmin)
+        self.ev = math.log(self.f * self.f / self.t, 2)
+        display_f = min(valid_f, key=lambda t: abs(t - self.f))
 
         return str(display_f)
+
+    def ev_value(self):
+        return self.ev
