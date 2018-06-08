@@ -17,6 +17,12 @@ F_STOPS = {
         11, 13, 14, 16, 18, 20, 22, 25, 29, 32, 36, 40, 45, 51, 57, 64, 72, 80, 90],
 }
 
+SHUTTERS = {
+    1: {'frac': [8000, 4000, 2000, 1000, 500, 250, 125, 60, 30, 15, 8, 4, 2], 'whole': [1, 2, 4, 8, 15, 30, 60]},
+    3: {'frac': [8000, 6400, 5000, 4000, 3200, 2500, 2000, 1600, 1250, 1000, 800, 640, 500, 400, 320, 250, 200, 160,
+                 125, 100, 80, 60, 50, 40, 30, 25, 20, 15, 13, 10, 8, 6, 5, 4, 3, 2.5, 2, 1.6, 1.25],
+        'whole': [1, 1.3, 1.6, 2, 2.5, 3.2, 4, 5, 6, 8, 10, 13, 15, 20, 25, 30, 40, 50, 60]},
+}
 
 class Exposure:
     """
@@ -34,7 +40,8 @@ class Exposure:
 
         self.f = 8
         self.t = 1 / 100
-        self.ev = 0
+        self.iso = 100
+        self.lv = 0
 
     def f_stop(self, x):
         """
@@ -50,10 +57,10 @@ class Exposure:
         x = round(x * steps) / steps
 
         self.f = math.pow(2, (fmax - fmin) * x + fmin)
-        self.ev = math.log(self.f * self.f / self.t, 2)
+        self.lv = math.log(self.f * self.f / self.t, 2) + math.log(self.iso / 100, 2)
         display_f = min(valid_f, key=lambda t: abs(t - self.f))
 
         return str(display_f)
 
-    def ev_value(self):
-        return self.ev
+    def ev_value(self):  # FIXME: Refactor
+        return self.lv

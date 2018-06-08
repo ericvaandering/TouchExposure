@@ -56,11 +56,11 @@
         "nodes" : [
 
         ],
-        "frame" : "{{78, 6}, {418, 59}}",
+        "frame" : "{{76, 6}, {418, 59}}",
         "class" : "Label",
         "attributes" : {
           "flex" : "L",
-          "font_size" : 32,
+          "font_size" : 24,
           "enabled" : true,
           "font_name" : "HelveticaNeue-Light",
           "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
@@ -71,7 +71,7 @@
           "name" : "label1",
           "text_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)"
         },
-        "selected" : true
+        "selected" : false
       },
       {
         "nodes" : [
@@ -80,10 +80,12 @@
         "frame" : "{{6, 76}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
+                              "action" : "slider_toggle",
+
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
-          "name" : "switch1",
+          "name" : "aperture_switch",
           "uuid" : "2992B3AD-DDFD-4147-92FE-6FF26E1B7EAA"
         },
         "selected" : false
@@ -95,10 +97,12 @@
         "frame" : "{{6, 118}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
+                              "action" : "slider_toggle",
+
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
-          "name" : "switch2",
+          "name" : "shutter_switch",
           "uuid" : "A5D95361-816C-47D6-8E43-48F3FDA5243D"
         },
         "selected" : false
@@ -110,10 +114,12 @@
         "frame" : "{{6, 160}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
+                    "action" : "slider_toggle",
+
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
-          "name" : "switch3",
+          "name" : "iso_switch",
           "uuid" : "71A0EAE7-EF39-411A-8797-F348A64F5E5E"
         },
         "selected" : false
@@ -130,7 +136,7 @@
           "uuid" : "8ED89B4A-8D1C-4EED-8462-3A5E3AF925A8",
           "class" : "Label",
           "alignment" : "center",
-          "text" : "🔒",
+          "text" : "🔓",
           "name" : "Lock icon",
           "font_name" : "<System>"
         },
@@ -156,11 +162,11 @@
     "frame" : "{{0, 0}, {500, 480}}",
     "class" : "View",
     "attributes" : {
-      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
-      "enabled" : true,
-      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
       "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "enabled" : true,
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
       "name" : "Color Mixer",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
       "flex" : ""
     },
     "selected" : false
