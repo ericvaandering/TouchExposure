@@ -14,7 +14,9 @@ from console import hud_alert
 from exposure import Exposure
 
 exp = Exposure(2.0, 32.0)
-last_adjusted = deque([None, None], maxlen=5)  # Initialize the list of last clicked switches with two items
+
+# Initialize the list of last clicked switches with two items
+last_adjusted = deque([None, None], maxlen=5)
 
 
 def slider_toggle(sender):
@@ -31,7 +33,8 @@ def slider_toggle(sender):
     shutter_slider = v['slider2']
     iso_slider = v['slider3']
 
-    slider_map = {'iso_switch': iso_slider, 'aperture_switch': aperture_slider, 'shutter_switch': shutter_slider}
+    slider_map = {'iso_switch': iso_slider, 'aperture_switch': aperture_slider,
+                  'shutter_switch': shutter_slider}
 
     if name != last_adjusted[-1]:  # Make sure the last two entries are unique
         last_adjusted.append(name)
@@ -67,12 +70,12 @@ def disable_slider(slider):
     """
 
     # How gray and transparent we want the disabled controls
-    GRAY = (0.5, 0.5, 0.5)
-    ALPHA = 0.5
+    gray = (0.5, 0.5, 0.5)
+    alpha = 0.5
 
     slider.touch_enabled = False
-    slider.alpha = ALPHA
-    slider.tint_color = GRAY
+    slider.alpha = alpha
+    slider.tint_color = gray
 
 
 def slider_action(sender):
