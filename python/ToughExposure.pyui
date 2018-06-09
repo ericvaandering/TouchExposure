@@ -12,8 +12,8 @@
           "continuous" : true,
           "enabled" : true,
           "action" : "slider_action",
-          "value" : 0.5,
           "uuid" : "EEC1AB04-2409-4C90-BD37-C72D603BEEFD",
+          "value" : 0.5,
           "name" : "slider1"
         },
         "selected" : false
@@ -29,8 +29,8 @@
           "continuous" : true,
           "enabled" : true,
           "action" : "slider_action",
-          "value" : 0.5,
           "uuid" : "24DD30D7-5087-44FF-BA7B-34FA81E96B25",
+          "value" : 0.5,
           "name" : "slider2"
         },
         "selected" : false
@@ -46,8 +46,8 @@
           "continuous" : true,
           "enabled" : true,
           "action" : "slider_action",
-          "value" : 0.5,
           "uuid" : "01C997A5-D740-4147-A0FA-984D6B0E496C",
+          "value" : 0.5,
           "name" : "slider3"
         },
         "selected" : false
@@ -56,32 +56,15 @@
         "nodes" : [
 
         ],
-        "frame" : "{{52, 324}, {65, 59}}",
-        "class" : "View",
-        "attributes" : {
-          "flex" : "R",
-          "border_width" : 1,
-          "enabled" : true,
-          "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-          "background_color" : "RGBA(0.000000,0.000000,0.000000,0.000000)",
-          "uuid" : "B83D01DD-419E-4234-B0A6-357C2B9295D6",
-          "name" : "view1"
-        },
-        "selected" : false
-      },
-      {
-        "nodes" : [
-
-        ],
-        "frame" : "{{244, 6}, {252, 59}}",
+        "frame" : "{{76, 6}, {418, 59}}",
         "class" : "Label",
         "attributes" : {
           "flex" : "L",
-          "font_size" : 32,
+          "font_size" : 24,
           "enabled" : true,
           "font_name" : "HelveticaNeue-Light",
           "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-          "text" : "#FFFFFF",
+          "text" : "Exposure values",
           "alignment" : "center",
           "background_color" : "RGBA(0.000000,0.000000,0.000000,0.000000)",
           "uuid" : "81F11B65-0F76-42F8-B27C-6568A0728611",
@@ -94,55 +77,15 @@
         "nodes" : [
 
         ],
-        "frame" : "{{348, 199}, {146, 38}}",
-        "class" : "Button",
-        "attributes" : {
-          "flex" : "L",
-          "action" : "copy_action",
-          "enabled" : true,
-          "name" : "button1",
-          "title" : "   Copy",
-          "uuid" : "A2344984-839E-4B23-AE36-06F18F500A55",
-          "font_bold" : false,
-          "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-          "background_color" : "RGBA(0.000000,0.000000,0.000000,0.000000)",
-          "font_size" : 15,
-          "image_name" : "ionicons-ios7-copy-outline-32"
-        },
-        "selected" : false
-      },
-      {
-        "nodes" : [
-
-        ],
-        "frame" : "{{6, 199}, {145.5, 38}}",
-        "class" : "Button",
-        "attributes" : {
-          "flex" : "R",
-          "action" : "shuffle_action",
-          "enabled" : true,
-          "name" : "button2",
-          "title" : "   Shuffle",
-          "uuid" : "F748FBD8-3614-40E7-967B-301CD2DD5205",
-          "font_bold" : false,
-          "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-          "background_color" : "RGBA(0.000000,0.000000,0.000000,0.000000)",
-          "font_size" : 15,
-          "image_name" : "ionicons-shuffle-32"
-        },
-        "selected" : false
-      },
-      {
-        "nodes" : [
-
-        ],
         "frame" : "{{6, 76}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
+                              "action" : "slider_toggle",
+
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
-          "name" : "switch1",
+          "name" : "aperture_switch",
           "uuid" : "2992B3AD-DDFD-4147-92FE-6FF26E1B7EAA"
         },
         "selected" : false
@@ -154,10 +97,12 @@
         "frame" : "{{6, 118}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
+                              "action" : "slider_toggle",
+
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
-          "name" : "switch2",
+          "name" : "shutter_switch",
           "uuid" : "A5D95361-816C-47D6-8E43-48F3FDA5243D"
         },
         "selected" : false
@@ -169,10 +114,12 @@
         "frame" : "{{6, 160}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
+                    "action" : "slider_toggle",
+
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
-          "name" : "switch3",
+          "name" : "iso_switch",
           "uuid" : "71A0EAE7-EF39-411A-8797-F348A64F5E5E"
         },
         "selected" : false
@@ -184,13 +131,13 @@
         "frame" : "{{6, 26}, {51, 32}}",
         "class" : "Label",
         "attributes" : {
-          "name" : "Lock icon",
+          "font_size" : 36,
           "frame" : "{{85, 224}, {150, 32}}",
           "uuid" : "8ED89B4A-8D1C-4EED-8462-3A5E3AF925A8",
           "class" : "Label",
           "alignment" : "center",
-          "text" : "🔒",
-          "font_size" : 36,
+          "text" : "🔓",
+          "name" : "Lock icon",
           "font_name" : "<System>"
         },
         "selected" : false
@@ -215,11 +162,11 @@
     "frame" : "{{0, 0}, {500, 480}}",
     "class" : "View",
     "attributes" : {
-      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
-      "enabled" : true,
       "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-      "name" : "Color Mixer",
+      "enabled" : true,
       "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "name" : "Color Mixer",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
       "flex" : ""
     },
     "selected" : false
