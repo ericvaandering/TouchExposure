@@ -14,6 +14,7 @@ from console import hud_alert
 from exposure import Exposure
 
 exp = Exposure(2.0, 32.0)
+exp.set_exposure(5.6, 1/100, 100, 0)
 
 # Initialize the list of last clicked switches with two items
 last_adjusted = deque([None, None], maxlen=5)
@@ -29,9 +30,9 @@ def slider_toggle(sender):
     v = sender.superview
     name = sender.name
 
-    aperture_slider = v['slider1']
-    shutter_slider = v['slider2']
-    iso_slider = v['slider3']
+    aperture_slider = v['aperture_slider']
+    shutter_slider = v['shutter_slider']
+    iso_slider = v['iso_slider']
 
     slider_map = {'iso_switch': iso_slider, 'aperture_switch': aperture_slider,
                   'shutter_switch': shutter_slider}
@@ -82,17 +83,28 @@ def slider_action(sender):
     # Get the root view:
     v = sender.superview
     # Get the sliders:
-    f_stop = v['slider1'].value
-    seconds = v['slider2'].value
-    iso_setting = v['slider3'].value
 
-    f = exp.f_stop(f_stop)
+    f_stop = v['aperture_slider'].value
+    seconds = v['shutter_slider'].value
+    iso_setting = v['iso_slider'].value
+
+    if sender.name == 'aperture_slider':
+        display_f, f = exp.x_to_fstop(f_stop)
+        _, t, iso, bias = exp.set_exposure(float(display_f))
+        v['shutter_slider'].value = exp.shutter_to_x(t)
+        display_t = exp.get_display_t()
+    else:
+        display_f, f = exp.x_to_fstop(f_stop)
+        display_t, t = exp.x_to_shutter(seconds)
+
+
     # Update the text from the new values
-    v['label1'].text = f'f/{f} {int(seconds * 255)}s ISO {int(iso_setting * 255)} EV={exp.ev_value():4.1f}'
+    v['label1'].text = f'f/{display_f} {display_t}s ISO {int(iso_setting * 255)} EV={exp.ev_value():4.1f}'
+
 
 
 v = ui.load_view('ToughExposure')
-slider_action(v['slider1'])
+slider_action(v['shutter_slider'])
 if ui.get_screen_size()[1] >= 768:
     # iPad
     v.present('sheet')

@@ -14,7 +14,7 @@
           "action" : "slider_action",
           "uuid" : "EEC1AB04-2409-4C90-BD37-C72D603BEEFD",
           "value" : 0.5,
-          "name" : "slider1"
+          "name" : "aperture_slider"
         },
         "selected" : false
       },
@@ -31,7 +31,7 @@
           "action" : "slider_action",
           "uuid" : "24DD30D7-5087-44FF-BA7B-34FA81E96B25",
           "value" : 0.5,
-          "name" : "slider2"
+          "name" : "shutter_slider"
         },
         "selected" : false
       },
@@ -48,7 +48,7 @@
           "action" : "slider_action",
           "uuid" : "01C997A5-D740-4147-A0FA-984D6B0E496C",
           "value" : 0.5,
-          "name" : "slider3"
+          "name" : "iso_slider"
         },
         "selected" : false
       },
@@ -80,8 +80,7 @@
         "frame" : "{{6, 76}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
-                              "action" : "slider_toggle",
-
+          "action" : "slider_toggle",
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
@@ -97,8 +96,7 @@
         "frame" : "{{6, 118}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
-                              "action" : "slider_toggle",
-
+          "action" : "slider_toggle",
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
@@ -114,8 +112,7 @@
         "frame" : "{{6, 160}, {51, 31}}",
         "class" : "Switch",
         "attributes" : {
-                    "action" : "slider_toggle",
-
+          "action" : "slider_toggle",
           "frame" : "{{135, 225}, {51, 31}}",
           "value" : false,
           "class" : "Switch",
@@ -131,13 +128,13 @@
         "frame" : "{{6, 26}, {51, 32}}",
         "class" : "Label",
         "attributes" : {
-          "font_size" : 36,
+          "name" : "Lock icon",
           "frame" : "{{85, 224}, {150, 32}}",
           "uuid" : "8ED89B4A-8D1C-4EED-8462-3A5E3AF925A8",
           "class" : "Label",
           "alignment" : "center",
           "text" : "🔓",
-          "name" : "Lock icon",
+          "font_size" : 36,
           "font_name" : "<System>"
         },
         "selected" : false
@@ -153,20 +150,20 @@
           "frame" : "{{60, 223}, {200, 34}}",
           "value" : 0.5,
           "class" : "Slider",
-          "name" : "ev_slider",
+          "name" : "bias_slider",
           "flex" : "W"
         },
-        "selected" : false
+        "selected" : true
       }
     ],
     "frame" : "{{0, 0}, {500, 480}}",
     "class" : "View",
     "attributes" : {
-      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
       "enabled" : true,
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
       "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
       "name" : "Color Mixer",
-      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
       "flex" : ""
     },
     "selected" : false
